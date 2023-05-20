@@ -1,4 +1,74 @@
+.header {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.header__wrapper {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.header__container {
 
+}
+._container {
+}
+.header__body {
+}
+.header__upper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__title {
+}
+.header__contactUs {
+    display: flex;
+}
+.header__location {
+}
+._icon {
+}
+._icon-location {
+}
+.header__link {
+}
+.header__phone {
+}
+._icon-phone {
+}
+.header__email {
+}
+._icon-email {
+}
+.header__burger {
+    display: flex;
+    align-items: center;
+}
+.header__burger-button {
+    @media (max-width:$md3) {
+    
+    }
+    position: relative;
+    display: block;
+    width: 30px;
+    flex: 0 0 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 5;
+    span {
+        transition: all ease 0.5s ease 0s; 
+        height: 2px;
+        width: 100%;
+        background-color: #EC1B2E;;
+    }
+}
+.header__burger-text {
+}
+.header__bottom {
+}
 /*
 .icon__menu {
     display: none;
