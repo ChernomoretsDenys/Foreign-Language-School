@@ -14,7 +14,7 @@ if (spollersArray.length > 0) {
     const spollersMedia = Array.from(spollersArray).filter(function (item, index, self) {
         return item.dataset.spollers.split(',')[0];
     });
-    
+
     if (spollersMedia.length > 0) {
         const breakpointsArray = [];
         spollersMedia.forEach(item => {
@@ -50,7 +50,7 @@ if (spollersArray.length > 0) {
             initSpollers(spollersArray, matchMedia);
         });
     }
-    
+
     function initSpollers(spollersArray, matchMedia = false) {
         spollersArray.forEach(spollersBlock => {
             spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
@@ -137,7 +137,7 @@ let _slideUp = (target, duration = 500) => {
 }
 
 let _slideDown = (target, duration = 500) => {
-    if (!target.classList.contains('_slide')) { 
+    if (!target.classList.contains('_slide')) {
         target.classList.add('_slide');
         if (target.hidden) {
             target.hidden = false;
@@ -203,16 +203,16 @@ var isMobile = {
     BlackBerry: function () {
         return navigator.userAgent.match(/BlackBerry/i);
     },
-    IOS: function () { 
+    IOS: function () {
         return navigator.userAgent.match(/iPhone|iPad/i);
     },
-    Opera: function () { 
+    Opera: function () {
         return navigator.userAgent.match(/Opera Mini/i);
     },
-    Windows: function () { 
+    Windows: function () {
         return navigator.userAgent.match(/IEMobile/i);
     },
-    any: function () { 
+    any: function () {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
@@ -231,13 +231,21 @@ if (isMobile.any()) {
 } else {
     document.documentElement.classList.add('_pc');
 }
-const iconMenu = document.querySelector('.icon__menu');
-const menuBody = document.querySelector('.menu__body');
+const iconMenu = document.querySelector('.header__burger-button');
+//const menuBody = document.querySelector('.menu__body');
+const contactUs = document.querySelector('.header__contactUs');
+const phoneToggle = document.querySelector('._icon-phone');
+const emailToggle = document.querySelector('._icon-email');
+const locationToggle = document.querySelector('._icon-location');
 if (iconMenu) {
     iconMenu.addEventListener('click', function (e) {
         document.documentElement.classList.toggle('_lock');
         iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
+        //menuBody.classList.toggle('_active');
+        contactUs.classList.toggle('_active');
+        phoneToggle.classList.toggle('_icon-phone_mod');
+        emailToggle.classList.toggle('_icon-email_mod');
+        locationToggle.classList.toggle('_icon-location_mod');
     });
 }
 
@@ -267,3 +275,4 @@ if (menuLinks.length > 0) {
         }
     }
 }
+

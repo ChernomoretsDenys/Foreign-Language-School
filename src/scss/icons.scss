@@ -31,12 +31,12 @@
 }
 ._icon-location:before {
     content: "\e902";
-    color:#EC1B2E;
+    color: #ec1b2e;
     background: white;
 }
 ._icon-phone:before {
     content: "\e903";
-    color:#EC1B2E;
+    color: #ec1b2e;
     background: white;
 }
 ._icon-telegram:before {
@@ -44,11 +44,27 @@
 }
 ._icon-email:before {
     content: "\e905";
-    color:#EC1B2E;
+    color: #ec1b2e;
 }
 ._icon-wk:before {
     content: "\e906";
 }
 ._icon-youtube:before {
     content: "\e907";
+}
+//Mods----------------------------
+._icon-phone_mod:before {
+    content: "\e903";
+    color: white;
+    background: #ec1b2e;
+}
+._icon-location_mod:before {
+    content: "\e902";
+    color: white;
+    background: #ec1b2e;
+}
+._icon-email_mod:before {
+    content: "\e905";
+    color: white;
+    background: #ec1b2e;
 }
