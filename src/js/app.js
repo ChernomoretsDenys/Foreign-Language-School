@@ -237,6 +237,8 @@ const contactUs = document.querySelector('.header__contactUs');
 const phoneToggle = document.querySelector('._icon-phone');
 const emailToggle = document.querySelector('._icon-email');
 const locationToggle = document.querySelector('._icon-location');
+//----------------------------------------------------------------
+const header__navigation = document.querySelector('.header__navigation');
 if (iconMenu) {
     iconMenu.addEventListener('click', function (e) {
         document.documentElement.classList.toggle('_lock');
