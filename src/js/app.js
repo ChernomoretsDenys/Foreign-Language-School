@@ -231,13 +231,13 @@ if (isMobile.any()) {
 } else {
     document.documentElement.classList.add('_pc');
 }
+//----------------------------------------------------------------
 const iconMenu = document.querySelector('.header__burger-button');
 //const menuBody = document.querySelector('.menu__body');
 const contactUs = document.querySelector('.header__contactUs');
 const phoneToggle = document.querySelector('._icon-phone');
 const emailToggle = document.querySelector('._icon-email');
 const locationToggle = document.querySelector('._icon-location');
-//----------------------------------------------------------------
 const header__navigation = document.querySelector('.header__navigation');
 if (iconMenu) {
     iconMenu.addEventListener('click', function (e) {
@@ -250,6 +250,39 @@ if (iconMenu) {
         locationToggle.classList.toggle('_icon-location_mod');
     });
 }
+//--
+const headerButtons = document.querySelector('.header__logo-buttons');
+const headerBottomNav = document.querySelector('.header__bottom-nav');
+headerButtons.addEventListener('click', screenSize);
+function screenSize(e) {
+    if (window.innerWidth <= 1150) {
+        if (e.target.closest('.header__logo' && iconMenu === false)) {
+            headerBottomNav.classList.toggle('_active');
+            document.body.classList.toggle('_lock');
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 if (menuLinks.length > 0) {
@@ -277,4 +310,5 @@ if (menuLinks.length > 0) {
         }
     }
 }
+
 
