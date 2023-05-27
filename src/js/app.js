@@ -232,6 +232,7 @@ if (isMobile.any()) {
     document.documentElement.classList.add('_pc');
 }
 //----------------------------------------------------------------
+const headerBurger = document.querySelector('.header-burger');
 const iconMenu = document.querySelector('.header__burger-button');
 //const menuBody = document.querySelector('.menu__body');
 const contactUs = document.querySelector('.header__contactUs');
@@ -240,28 +241,58 @@ const emailToggle = document.querySelector('._icon-email');
 const locationToggle = document.querySelector('._icon-location');
 const header__navigation = document.querySelector('.header__navigation');
 if (iconMenu) {
-    iconMenu.addEventListener('click', function (e) {
-        document.documentElement.classList.toggle('_lock');
+    iconMenu.addEventListener('click', (e) => {
         iconMenu.classList.toggle('_active');
         //menuBody.classList.toggle('_active');
         contactUs.classList.toggle('_active');
         phoneToggle.classList.toggle('_icon-phone_mod');
         emailToggle.classList.toggle('_icon-email_mod');
         locationToggle.classList.toggle('_icon-location_mod');
+        if (headerBottomNav.classList.contains('_active')) {
+            headerBottomNav.classList.remove('_active');
+            document.body.classList.remove('_lock');
+        }
     });
 }
-//--
+document.body.addEventListener('click', removeMenus);
+function removeMenus(e) {
+    if (iconMenu.classList.contains('_active') && !e.target.closest('.header__burger')) {
+        iconMenu.classList.remove('_active');
+        contactUs.classList.remove('_active');
+        phoneToggle.classList.remove('_icon-phone_mod');
+        emailToggle.classList.remove('_icon-email_mod');
+        locationToggle.classList.remove('_icon-location_mod');
+    }
+    if (headerBottomNav.classList.contains('_active') && !e.target.closest('.header__bottom-nav')) {
+        headerBottomNav.classList.remove('_active');
+        document.body.classList.remove('_lock');
+    }
+}
 const headerButtons = document.querySelector('.header__logo-buttons');
 const headerBottomNav = document.querySelector('.header__bottom-nav');
 headerButtons.addEventListener('click', screenSize);
 function screenSize(e) {
-    if (window.innerWidth <= 1150) {
-        if (e.target.closest('.header__logo' && iconMenu === false)) {
+    if (window.innerWidth <= 1150 && iconMenu.classList.contains('_active')) {
+        if (e.target.closest('.header__logo')) {
+            iconMenu.classList.remove('_active');
+            contactUs.classList.remove('_active');
+            phoneToggle.classList.remove('_icon-phone_mod');
+            emailToggle.classList.remove('_icon-email_mod');
+            locationToggle.classList.remove('_icon-location_mod');
             headerBottomNav.classList.toggle('_active');
             document.body.classList.toggle('_lock');
         }
+    } else if (window.innerWidth <= 1150) {
+        if (e.target.closest('.header__logo')) {
+            headerBottomNav.classList.toggle('_active');
+            document.body.classList.toggle('_lock');
+        }
+    } else if (window.innerWidth > 1150) {
+        headerBottomNav.classList.remove('_active');
+        document.body.classList.remove('_lock')
     }
 }
+
 
 
 

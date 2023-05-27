@@ -80,7 +80,7 @@
         & ._icon {
             transform: scale(1);
             margin-right: 0;
-            @include adaptive-value("padding-right", 13, 21, 1);
+            @include adaptive-value("padding-right", 11, 21, 1);
             &:not(:last-child) {
                 padding-bottom: 5px;
             }

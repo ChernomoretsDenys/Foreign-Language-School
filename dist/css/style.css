@@ -170,12 +170,12 @@ a {
   .header__contactUs ._icon {
     transform: scale(1);
     margin-right: 0;
-    padding-right: 13px;
+    padding-right: 11px;
   }
 }
 @media (max-width: 767.98px) and (max-width: 1330px) {
   .header__contactUs ._icon {
-    padding-right: calc(21px + -8 * ((100vw - 320px) / 1010));
+    padding-right: calc(21px + -10 * ((100vw - 320px) / 1010));
   }
 }
 @media (max-width: 767.98px) {
