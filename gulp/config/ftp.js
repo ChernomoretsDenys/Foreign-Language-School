@@ -1,6 +1,6 @@
-export let configFTP = {
+/*export let configFTP = {
     host: '',
     user: '',
     password: '',
     parallel: ''
-}
+}*/
