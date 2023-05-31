@@ -3,7 +3,7 @@ import fonter from "gulp-fonter";
 import ttf2woff2 from "gulp-ttf2woff2";
 
 export const otfToTtf = () => { 
-    return app.gulp.src(`${app.path.srcFolder}/fonst/*.otf`, {})
+    return app.gulp.src(`${app.path.srcFolder}/fonts/*.otf`, {})
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
                 title: "FONTS",

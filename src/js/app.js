@@ -240,10 +240,12 @@ const phoneToggle = document.querySelector('._icon-phone');
 const emailToggle = document.querySelector('._icon-email');
 const locationToggle = document.querySelector('._icon-location');
 const header__navigation = document.querySelector('.header__navigation');
+const headerButtons = document.querySelector('.header__logo-buttons');
+const headerBottomNav = document.querySelector('.header__bottom-nav');
+const linkListener = document.querySelector('.link__photo');
 if (iconMenu) {
     iconMenu.addEventListener('click', (e) => {
         iconMenu.classList.toggle('_active');
-        //menuBody.classList.toggle('_active');
         contactUs.classList.toggle('_active');
         phoneToggle.classList.toggle('_icon-phone_mod');
         emailToggle.classList.toggle('_icon-email_mod');
@@ -268,8 +270,6 @@ function removeMenus(e) {
         document.body.classList.remove('_lock');
     }
 }
-const headerButtons = document.querySelector('.header__logo-buttons');
-const headerBottomNav = document.querySelector('.header__bottom-nav');
 headerButtons.addEventListener('click', screenSize);
 function screenSize(e) {
     if (window.innerWidth <= 1150 && iconMenu.classList.contains('_active')) {
@@ -292,6 +292,17 @@ function screenSize(e) {
         document.body.classList.remove('_lock')
     }
 }
+document.body.addEventListener('click', () => {
+    const linkOriginCopy = linkListener.innerHTML;
+    if (window.innerWidth <= 480) {
+        linkListener.innerHTML = `<img src="img/icons/index/Globe.svg" alt="" width="35">`;
+    }
+    else {
+        linkListener.innerHTML = linkOriginCopy;
+        
+    }
+});
+
 
 
 

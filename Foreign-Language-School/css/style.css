@@ -92,6 +92,10 @@ a {
   background-color: #fff;
 }
 
+.goo {
+  width: 35px;
+}
+
 .header__title {
   color: #ec1b2e;
   letter-spacing: 0.02em;
@@ -287,6 +291,9 @@ a {
 @media (max-width: 1150px) {
   .header__bottom-nav {
     flex-direction: column;
+  }
+  .header__bottom-nav .header__logo-buttons {
+    cursor: pointer;
   }
   .header__bottom-nav .navigation {
     z-index: -1;

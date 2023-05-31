@@ -22,6 +22,10 @@
     padding-bottom: 20px;
     z-index: 10;
     background-color: #fff;
+
+}
+.goo {
+    width: 35px;
 }
 .header__title {
     color: #ec1b2e;
@@ -93,6 +97,9 @@
             color: white;
             font-size: 10px;
         }
+    }
+    @media (max-width:470px) {
+        
     }
     &._active {
         top: 39px;
@@ -182,6 +189,9 @@
     transition: all 0.4s ease 0s;
     border-top: 1px solid rgb(184, 179, 179);
     @media (max-width: 1150px) {
+        & .header__logo-buttons {
+            cursor:pointer;
+        }
         flex-direction: column;
         
         & .navigation {
