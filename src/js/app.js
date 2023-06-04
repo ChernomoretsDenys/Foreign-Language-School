@@ -234,7 +234,6 @@ if (isMobile.any()) {
 //----------------------------------------------------------------
 const headerBurger = document.querySelector('.header-burger');
 const iconMenu = document.querySelector('.header__burger-button');
-//const menuBody = document.querySelector('.menu__body');
 const contactUs = document.querySelector('.header__contactUs');
 const phoneToggle = document.querySelector('._icon-phone');
 const emailToggle = document.querySelector('._icon-email');
@@ -292,16 +291,29 @@ function screenSize(e) {
         document.body.classList.remove('_lock')
     }
 }
-document.body.addEventListener('click', () => {
-    const linkOriginCopy = linkListener.innerHTML;
+const linkOriginCopy = linkListener.innerHTML;
+window.addEventListener('resize', () => { 
     if (window.innerWidth <= 480) {
         linkListener.innerHTML = `<img src="img/icons/index/Globe.svg" alt="" width="35">`;
     }
-    else {
+    if (window.innerWidth > 480) {
         linkListener.innerHTML = linkOriginCopy;
-        
+    }
+    if (window.innerWidth >= 764 && iconMenu.classList.contains('_active') ) {
+        iconMenu.classList.remove('_active');
+        contactUs.classList.remove('_active');
+        phoneToggle.classList.remove('_icon-phone_mod');
+        emailToggle.classList.remove('_icon-email_mod');
+        locationToggle.classList.remove('_icon-location_mod');
     }
 });
+if (window.innerWidth <= 480) {
+    linkListener.innerHTML = `<img src="img/icons/index/Globe.svg" alt="" width="35">`;
+}
+if (window.innerWidth > 480) {
+    linkListener.innerHTML = linkOriginCopy;
+    
+}
 
 
 

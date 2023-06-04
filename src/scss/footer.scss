@@ -1,0 +1,103 @@
+.footer {
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.footer__wrapper {
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.footer__container {
+    background-color: #f1f1f1;
+}
+.footer__body {
+    align-items: center;
+}
+.footer__upper {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+    border-bottom: 1px solid rgb(184, 179, 179);
+    @include adaptive-value("gap", 69, 50, 1);
+}
+.footer__firstBlock {
+}
+.footer__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    color: #333333;
+    margin-bottom: 25px;
+}
+.footer__contactUs {
+}
+.footer__location {
+}
+._icon {
+}
+.footer__link {
+    transition: all 0.3s ease 0s;
+    &:hover {
+        color: #ec1b2e;
+    }
+}
+.universal__link {
+}
+._icon-location {
+}
+.footer__phone {
+}
+._icon-phone {
+}
+.footer__email {
+}
+._icon-email {
+}
+.footer__socials {
+}
+.footer__wk {
+}
+._icon-wk {
+}
+.footer__youTube {
+}
+._icon-youtube {
+}
+.footer__telegram {
+}
+._icon-telegram {
+}
+.footer__wechat {
+}
+._icon-bi_wechat {
+}
+
+.footer__blocks {
+    max-width: 230px;
+}
+.footer__list {
+    
+}
+.footer__item {
+    font-size: 14px;
+    line-height: 140%;
+    color: #333333;
+    &:not(:first-child) { 
+        margin-top: 15px;
+    }
+}
+.footer__thirdBlock {
+}
+.footer__subBlockOne {
+}
+.footer__subBlockTwo {
+}
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 140%;
+}
