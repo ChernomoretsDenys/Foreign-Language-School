@@ -28,6 +28,7 @@
 }
 ._icon-bi_wechat:before {
     content: "\e901";
+    transform: scale(1.3);
 }
 ._icon-location:before {
     content: "\e902";
@@ -77,4 +78,22 @@
     content: "\e903";
     color: #ec1b2e;
     background: #f1f1f1;
+}
+
+._icon-wk_mod:before {
+    content: "\e906";
+    color: #ec1b2e;
+}
+._icon-youtube_mod:before {
+    content: "\e907";
+    color: #ec1b2e;
+}
+._icon-telegram_mod:before {
+    content: "\e904";
+    color: #ec1b2e;
+}
+._icon-bi_wechat_mod:before {
+    content: "\e901";
+    transform: scale(1.3);
+    color: #ec1b2e;
 }

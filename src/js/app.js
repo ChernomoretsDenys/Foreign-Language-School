@@ -316,6 +316,12 @@ if (window.innerWidth > 480) {
 }
 
 
+const footerUpper = addEventListener('click', deploy);
+
+function deploy(e) { 
+
+};
+
 
 
 
