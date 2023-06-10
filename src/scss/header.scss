@@ -3,7 +3,10 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 2;
+    z-index: 9;
+    &._active{
+        z-index: 20;
+    }
 }
 .header__wrapper {
     position: fixed;

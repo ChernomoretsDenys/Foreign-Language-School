@@ -1,8 +1,9 @@
 .footer {
     width: 100%;
     left: 0;
-    top: 170px;
+    top: 200px;
     position: relative;
+    z-index: 10;
 }
 .footer__wrapper {
     left: 0;
@@ -18,30 +19,46 @@
 .footer__upper {
     display: flex;
     justify-content: space-between;
-    @include adaptive-value("padding-top", 60, 0, 1);
+    @include adaptive-value("padding-top", 60, 15, 1);
     @include adaptive-value("padding-bottom", 60, 0, 1);
     border-bottom: 1px solid rgb(184, 179, 179);
-    @include adaptive-value("gap", 69, 0, 1);
-}
-.footer__firstBlock {
+    @include adaptive-value("gap", 25, 10, 1);
+    @media (max-width: 1080px) {
+        flex-direction: column;
+        .footer__blocks {
+            max-width: 100%;
+            & .footer__list {
+                display: none;
+                @include adaptive-value("max-width", 1200, 250, 1);
+            }
+        }
+        .footer__blocks.active {
+            & .footer__list {
+                display: inline-block;
+            }
+            & .footer__list-mod {
+                display: flex;
+                justify-self: center;
+                align-self: center;
+            }
+            & .footer__list {
+                top: 0;
+            }
+        }
+    }
 }
 .footer__title {
     font-weight: 700;
-    @include adaptive-value("font-size",20 ,15 ,1 );
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 20, 1);
     line-height: 140%;
     color: #333333;
-    @include adaptive-value("margin-bottom",25 ,0 ,1 );
+    @include adaptive-value("margin-bottom", 25, 20, 1);
 }
 .footer__contactUs {
-     @media (max-width: $md2) {
+    @media (max-width: 1080px) {
         display: flex;
         justify-content: space-around;
-     }
-}
-.footer__location {
-}
-._icon {
+    }
 }
 .footer__link {
     transition: all 0.3s ease 0s;
@@ -49,71 +66,69 @@
         color: #ec1b2e;
     }
 }
-.universal__link {
-}
-._icon-location {
-}
-.footer__phone {
-}
-._icon-phone {
-}
-.footer__email {
-}
-._icon-email {
-}
 .footer__socials {
     display: flex;
     justify-content: space-between;
-    @include adaptive-value("margin-top",40 ,20 ,1 );
+    @include adaptive-value("margin-top", 40, 30, 1);
+    @include adaptive-value("margin-bottom", 40, 30, 1);
 }
-.footer__wk {
-}
-._icon-wk {
-}
-.footer__youTube {
-}
-._icon-youtube {
-}
-.footer__telegram {
-}
-._icon-telegram {
-}
-.footer__wechat {
-}
-._icon-bi_wechat {
-}
-
 .footer__blocks {
     max-width: 230px;
-    @media (max-width:1080px) {
+    position: relative;
+    @media (max-width: 1080px) {
         & .footer__title {
-            cursor: pointer;
+            padding-right: 40px;
         }
-       & .footer__list {
-        top: -100%;
-        position: relative;
-       }
+        & .footer__list {
+            position: relative;
+            top: -100%;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 12px;
+            display: inline-block;
+            height: 2px;
+            @include adaptive-value("width", 20, 30, 1);
+            background-color: #ec1b2e;
+            transform: rotate(90deg);
+            transition: all 0.4s ease 0s;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 12px;
+            display: inline-block;
+            height: 2px;
+            @include adaptive-value("width", 20, 30, 1);
+            background-color: #ec1b2e;
+            transform: rotate(0deg);
+            transition: all 0.4s ease 0s;
+        }
+        &.active {
+            &::after {
+                transform: rotate(45deg);
+            }
+            &::before {
+                transform: rotate(-45deg);
+            }
+        }
     }
-}
-.footer__list {
-   
 }
 .footer__item {
     font-size: 14px;
     line-height: 140%;
     color: #333333;
-    &:not(:first-child) { 
-       @include adaptive-value("margin-top",15 ,0,1 );
+    &:not(:first-child) {
+        @include adaptive-value("margin-top", 15, 12, 1);
     }
 }
-.footer__thirdBlock {
-
-}
 .footer__subBlockOne {
-    @include adaptive-value("margin-bottom",25 ,0 ,1 );
-}
-.footer__subBlockTwo {
-    
+    @include adaptive-value("margin-bottom", 40, 20, 1);
 }
 .footer__bottom {
     display: flex;
