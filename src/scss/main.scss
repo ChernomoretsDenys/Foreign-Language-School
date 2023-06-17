@@ -1,7 +1,69 @@
 .main {
     z-index: 1;
     position: relative;
-    top:190px;
-    
-    background-color: rgb(255, 255, 255) ;
+    top: 190px;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+}
+.main__wrapper {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.main__picture {
+    @include adaptive-value("height", 750, 300, 1);
+}
+.background {
+    background: url("../img/backgrounds/index/Rectangle 31.svg") 50% / cover no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.3s ease-in 0s;
+    position: relative;
+    &.active {
+        background: url("../img/backgrounds/index/dmitrii-anisimov-reka-bolshaia-neva-universitetskaia-naberez.png") 50% /
+            cover no-repeat;
+    }
+}
+.background__button {
+    @include adaptive-value("width", 60, 40, 1);
+    @include adaptive-value("height", 60, 40, 1);
+}
+.main__button span {
+    color: #fff;
+    @include adaptive-value("font-size", 20, 15, 1);
+}
+.background__textBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include adaptive-value("height",420 ,100 ,1 );
+}
+.text-container {
+    max-width: 586px;
+    background-color: rgba(50, 52, 68, 0.5);
+}
+.text-container__contents {
+    font-weight: 800;
+    @include adaptive-value("font-size",40 ,10 ,1 );
+    line-height: 140%;
+    color: #fff;
+    margin: 15px 30px 15px 30px;
+}
+.main__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ec1b2e;
+    transition: all 0.4s ease 0s;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.background__moreInfo {
+    @include adaptive-value("width", 153, 90, 1);
+    @include adaptive-value("height", 50, 30, 1);
 }

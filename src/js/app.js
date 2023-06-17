@@ -244,6 +244,11 @@ const headerBottomNav = document.querySelector('.header__bottom-nav');
 const linkListener = document.querySelector('.link__photo');
 const header = document.querySelector('.header');
 const footerBlocks = document.querySelectorAll('.footer__blocks');
+const headerWrapper = document.querySelector('.header__wrapper');
+const backGroundBt = document.querySelectorAll('.background__button');
+const backGround = document.querySelector('.background');
+let textContainer = document.querySelector('.text-container__contents');
+const textChange = textContainer;
 if (iconMenu) {
     iconMenu.addEventListener('click', (e) => {
         iconMenu.classList.toggle('_active');
@@ -255,6 +260,7 @@ if (iconMenu) {
             headerBottomNav.classList.remove('_active');
             document.body.classList.remove('_lock');
             header.classList.remove('_active');
+            headerWrapper.classList.remove('_active');
         }
     });
 }
@@ -271,6 +277,7 @@ function removeMenus(e) {
         headerBottomNav.classList.remove('_active');
         document.body.classList.remove('_lock');
         header.classList.remove('_active');
+        headerWrapper.classList.remove('_active');
     }
     if (e.target.closest('.footer__title')) {
         for (let i = 0; i < footerBlocks.length; i++) {
@@ -283,6 +290,19 @@ function removeMenus(e) {
             if (footerBlocks[i].classList.contains('active')) footerBlocks[i].classList.remove('active');
         }
     }
+
+    console.log(textChange.innerHTML);
+    if (e.target.closest(`.background__button`) == backGroundBt[1]) {
+        backGround.classList.add('active');
+        textContainer.innerHTML = `Fugiat architecto cupiditate autem,
+        deleniti iste consequuntur nulla officia fugit asperiores a !`
+        e.preventDefault();
+    }
+    if (e.target.closest(`.background__button`) == backGroundBt[0]) {
+        backGround.classList.remove('active');
+        
+        e.preventDefault();
+    }
 }
 headerButtons.addEventListener('click', screenSize);
 function screenSize(e) {
@@ -294,6 +314,7 @@ function screenSize(e) {
             emailToggle.classList.remove('_icon-email_mod');
             locationToggle.classList.remove('_icon-location_mod');
             headerBottomNav.classList.toggle('_active');
+            headerWrapper.classList.toggle('_active');
             document.body.classList.toggle('_lock');
             header.classList.toggle('_active');
         }
@@ -302,11 +323,13 @@ function screenSize(e) {
             headerBottomNav.classList.toggle('_active');
             document.body.classList.toggle('_lock');
             header.classList.toggle('_active');
+            headerWrapper.classList.toggle('_active');
         }
     } else if (window.innerWidth > 1150) {
         headerBottomNav.classList.remove('_active');
         document.body.classList.remove('_lock');
         header.classList.remove('_active');
+        headerWrapper.classList.remove('_active');
     }
 }
 const linkOriginCopy = linkListener.innerHTML;

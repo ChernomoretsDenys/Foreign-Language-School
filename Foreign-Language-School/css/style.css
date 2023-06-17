@@ -80,9 +80,14 @@ html {
 
 .header__wrapper {
   position: fixed;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
   width: 100%;
   left: 0;
   top: 0;
+}
+.header__wrapper._active {
+  height: 100%;
 }
 
 .header__body {
@@ -98,7 +103,7 @@ html {
   justify-content: space-between;
   padding-bottom: 20px;
   z-index: 10;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .header__title {
@@ -144,7 +149,6 @@ html {
 }
 
 .header__contactUs {
-  transition: all 0.5s ease 0s;
   display: flex;
 }
 .header__contactUs ._icon {
@@ -181,7 +185,6 @@ html {
     right: 0;
     align-items: stretch;
     background-color: #ec1b2e;
-    color: white;
     border-radius: 5px;
     padding: 8px;
     border-top: 2px solid white;
@@ -283,7 +286,7 @@ html {
     height: 21px;
     z-index: 100;
     display: block;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 @media (max-width: 767.98px) and (max-width: 480px) {
@@ -296,7 +299,6 @@ html {
     height: 23px;
     z-index: 100;
     display: block;
-    background-color: #ffffff;
   }
 }
 @media (max-width: 767.98px) {
@@ -349,8 +351,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  transition: all 0.4s ease-in-out 0.1s;
+  background-color: rgba(255, 255, 255, 0);
   border-top: 1px solid rgb(184, 179, 179);
 }
 @media (max-width: 1150px) {
@@ -363,7 +364,7 @@ html {
   .header__bottom-nav .navigation {
     z-index: -1;
     position: absolute;
-    top: -100%;
+    top: -110%;
   }
   .header__bottom-nav._active {
     background-color: #ec1b2e;
@@ -429,10 +430,6 @@ html {
   .header__bottom-nav._active .navigation .navigation__list li:not(:last-child) {
     margin-bottom: 5px;
   }
-}
-
-.header__logo {
-  transition: all 0.5s ease 0s;
 }
 
 .header__logo-white {
@@ -694,6 +691,118 @@ html {
   position: relative;
   top: 190px;
   background-color: rgb(255, 255, 255);
+  height: 100%;
+}
+
+.main__wrapper {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.main__picture {
+  height: 750px;
+}
+@media (max-width: 1330px) {
+  .main__picture {
+    height: calc(300px + 450 * ((100vw - 320px) / 1010));
+  }
+}
+
+.background {
+  background: url("../img/backgrounds/index/Rectangle 31.svg") 50%/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.3s ease-in 0s;
+  position: relative;
+}
+.background.active {
+  background: url("../img/backgrounds/index/dmitrii-anisimov-reka-bolshaia-neva-universitetskaia-naberez.png") 50%/cover no-repeat;
+}
+
+.background__button {
+  width: 60px;
+  height: 60px;
+}
+@media (max-width: 1330px) {
+  .background__button {
+    width: calc(40px + 20 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .background__button {
+    height: calc(40px + 20 * ((100vw - 320px) / 1010));
+  }
+}
+
+.main__button span {
+  color: #fff;
+  font-size: 20px;
+}
+@media (max-width: 1330px) {
+  .main__button span {
+    font-size: calc(15px + 5 * ((100vw - 320px) / 1010));
+  }
+}
+
+.background__textBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 420px;
+}
+@media (max-width: 1330px) {
+  .background__textBlock {
+    height: calc(100px + 320 * ((100vw - 320px) / 1010));
+  }
+}
+
+.text-container {
+  max-width: 586px;
+  background-color: rgba(50, 52, 68, 0.5);
+}
+
+.text-container__contents {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 140%;
+  color: #fff;
+  margin: 15px 30px 15px 30px;
+}
+@media (max-width: 1330px) {
+  .text-container__contents {
+    font-size: calc(10px + 30 * ((100vw - 320px) / 1010));
+  }
+}
+
+.main__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ec1b2e;
+  transition: all 0.4s ease 0s;
+}
+.main__button:hover {
+  transform: scale(1.1);
+}
+
+.background__moreInfo {
+  width: 153px;
+  height: 50px;
+}
+@media (max-width: 1330px) {
+  .background__moreInfo {
+    width: calc(90px + 63 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .background__moreInfo {
+    height: calc(30px + 20 * ((100vw - 320px) / 1010));
+  }
 }
 
 @font-face {
@@ -761,13 +870,13 @@ html {
 ._icon-location:before {
   content: "\e902";
   color: #ec1b2e;
-  background: white;
+  background: rgba(255, 255, 255, 0);
 }
 
 ._icon-phone:before {
   content: "\e903";
   color: #ec1b2e;
-  background: white;
+  background: rgba(255, 255, 255, 0);
 }
 
 ._icon-telegram:before {
