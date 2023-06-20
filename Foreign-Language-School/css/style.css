@@ -91,7 +91,6 @@ html {
 }
 
 .header__body {
-  min-height: 140px;
   align-items: center;
   position: relative;
 }
@@ -104,6 +103,11 @@ html {
   padding-bottom: 20px;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0);
+}
+@media (max-width: 1330px) {
+  .header__upper {
+    padding-bottom: calc(5px + 15 * ((100vw - 320px) / 1010));
+  }
 }
 
 .header__title {
@@ -178,7 +182,7 @@ html {
 }
 @media (max-width: 767.98px) {
   .header__contactUs {
-    top: -100%;
+    top: -130%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -187,7 +191,7 @@ html {
     background-color: #ec1b2e;
     border-radius: 5px;
     padding: 8px;
-    border-top: 2px solid white;
+    margin-top: 2px;
   }
   .header__contactUs ._icon {
     transform: scale(1);
@@ -205,7 +209,7 @@ html {
     padding-bottom: 5px;
   }
   .header__contactUs ._icon:hover {
-    transform: scale(1.05);
+    transform: scale(1);
   }
   .header__contactUs .header__link span {
     display: inline-block;
@@ -223,11 +227,14 @@ html {
     margin-right: 0;
   }
   .header__contactUs ._icon {
-    transform: scale(1.6);
+    transform: scale(1.4);
     padding-right: 27px;
   }
+  .header__contactUs ._icon:hover {
+    transform: scale(1.4);
+  }
   .header__contactUs ._icon:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   .header__contactUs .header__link span {
     display: none;
@@ -364,7 +371,7 @@ html {
   .header__bottom-nav .navigation {
     z-index: -1;
     position: absolute;
-    top: -110%;
+    top: -120%;
   }
   .header__bottom-nav._active {
     background-color: #ec1b2e;
@@ -467,6 +474,16 @@ html {
   line-height: 140%;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.navigation__hidden {
+  display: none;
+}
+.navigation__hidden .universal__link {
+  transition: none;
+}
+.navigation__hidden._active {
+  display: inline-block;
 }
 
 .footer {
@@ -723,6 +740,11 @@ html {
 .background.active {
   background: url("../img/backgrounds/index/dmitrii-anisimov-reka-bolshaia-neva-universitetskaia-naberez.png") 50%/cover no-repeat;
 }
+@media (max-width: 767.98px) {
+  .background .background__button {
+    display: none;
+  }
+}
 
 .background__button {
   width: 60px;
@@ -754,6 +776,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   height: 420px;
+  margin: 0 15px;
 }
 @media (max-width: 1330px) {
   .background__textBlock {
@@ -802,6 +825,78 @@ html {
 @media (max-width: 1330px) {
   .background__moreInfo {
     height: calc(30px + 20 * ((100vw - 320px) / 1010));
+  }
+}
+
+.body__upper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 1330px) {
+  .body__upper {
+    margin-top: calc(0px + 50 * ((100vw - 320px) / 1010));
+  }
+}
+
+.body__upper-field {
+  border: 10px solid #ec1b2e;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  padding-right: 70px;
+  padding-left: 70px;
+  max-width: 400px;
+}
+@media (max-width: 1330px) {
+  .body__upper-field {
+    padding-top: calc(10px + 46 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .body__upper-field {
+    padding-bottom: calc(10px + 46 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .body__upper-field {
+    padding-right: calc(20px + 50 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .body__upper-field {
+    padding-left: calc(20px + 50 * ((100vw - 320px) / 1010));
+  }
+}
+
+.body__upper-leg {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+  color: #333333;
+  margin-left: 40px;
+  padding: 0 20px 0;
+}
+@media (max-width: 1330px) {
+  .body__upper-leg {
+    font-size: calc(30px + 10 * ((100vw - 320px) / 1010));
+  }
+}
+@media (max-width: 1330px) {
+  .body__upper-leg {
+    margin-left: calc(10px + 30 * ((100vw - 320px) / 1010));
+  }
+}
+
+.body__upper-text {
+  font-size: 18px;
+  line-height: 140%;
+}
+
+@media (max-width: 1060px) {
+  .body__upper-img {
+    display: none;
   }
 }
 

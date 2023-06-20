@@ -231,6 +231,18 @@ if (isMobile.any()) {
 } else {
     document.documentElement.classList.add('_pc');
 }
+
+
+
+
+
+
+
+
+
+
+
+
 //----------------------------------------------------------------
 const headerBurger = document.querySelector('.header-burger');
 const iconMenu = document.querySelector('.header__burger-button');
@@ -247,8 +259,11 @@ const footerBlocks = document.querySelectorAll('.footer__blocks');
 const headerWrapper = document.querySelector('.header__wrapper');
 const backGroundBt = document.querySelectorAll('.background__button');
 const backGround = document.querySelector('.background');
-let textContainer = document.querySelector('.text-container__contents');
-const textChange = textContainer;
+const textContainer = document.querySelector('.text-container__contents');
+const mainContent = document.querySelector('.main');
+const navigationList = document.querySelector('.navigation__list');
+const navigationHidList = document.querySelectorAll('.navigation__hidden');
+
 if (iconMenu) {
     iconMenu.addEventListener('click', (e) => {
         iconMenu.classList.toggle('_active');
@@ -290,8 +305,6 @@ function removeMenus(e) {
             if (footerBlocks[i].classList.contains('active')) footerBlocks[i].classList.remove('active');
         }
     }
-
-    console.log(textChange.innerHTML);
     if (e.target.closest(`.background__button`) == backGroundBt[1]) {
         backGround.classList.add('active');
         textContainer.innerHTML = `Fugiat architecto cupiditate autem,
@@ -300,10 +313,94 @@ function removeMenus(e) {
     }
     if (e.target.closest(`.background__button`) == backGroundBt[0]) {
         backGround.classList.remove('active');
-        
+        textContainer.innerHTML = `ИДЕТ НАБОР НА ОБУЧЕНИЕ В ШКОЛУ "ЛАВИТА" В НЕВСКОМ РАЙОНЕ
+        ПЕТЕРБУРГА! УСПЕЙ ЗАПИСАТЬСЯ!`;
         e.preventDefault();
     }
+    if (window.innerWidth < 920 && window.innerHeight < window.innerWidth && is_touch_enabled()) {
+        if (headerWrapper.classList.contains('_active')) {
+            for (let i = 0; i < navigationHidList.length; i++) {
+                navigationHidList[i].classList.add('_active');
+            }
+        }
+    }
 }
+//<Swipe>--------------------------------
+let touchArea = document.querySelector('.main__picture');
+let mouseX, initialX = 0;
+let mouseY, initialY = 0;
+let isSwiped;
+let events = {
+    mouse: {
+        down: 'mousedown',
+        move: 'mousemove',
+        up: 'mouseup',
+    },
+    touch: {
+        down: 'touchstart',
+        move: 'touchmove',
+        up: 'touchend',
+    },
+};
+let deviceType = '';
+const isTouchDevice = () => {
+    try {
+        document.createEvent('TouchEvent');
+        deviceType = 'touch';
+        return true;
+    } catch (e) {
+        deviceType = 'mouse';
+        return false;
+    }
+};
+let rectLeft = touchArea.getBoundingClientRect().left;
+let rectTop = touchArea.getBoundingClientRect().top;
+const getXY = (e) => {
+    mouseX = (!isTouchDevice() ? e.pageX : e.touches[0].pageX) - rectLeft;
+    mouseY = (!isTouchDevice() ? e.pageY : e.touches[0].pageY) - rectTop;
+};
+isTouchDevice();
+touchArea.addEventListener(events[deviceType].down, (e) => {
+    isSwiped = true;
+    getXY(e);
+    initialX = mouseX;
+    initialY = mouseY;
+});
+touchArea.addEventListener(events[deviceType].move, (e) => {
+    if (!isTouchDevice()) e.preventDefault();
+    if (isSwiped) {
+        getXY(e);
+        let diffX = mouseX - initialX;
+        let diffY = mouseY - initialY;
+        if (Math.abs(diffY) > Math.abs(diffX)) {
+        } else {
+            if (window.innerWidth <= 767) {
+                if ((diffX > 0 ? 'Right' : 'Left') == 'Left') {
+                    backGround.classList.add('active');
+                    textContainer.innerHTML = `Fugiat architecto cupiditate autem,
+            deleniti iste consequuntur nulla officia fugit asperiores a !`
+                    e.preventDefault();
+                }
+                if ((diffX > 0 ? 'Right' : 'Left') == 'Right') {
+                    backGround.classList.remove('active');
+                    textContainer.innerHTML = `ИДЕТ НАБОР НА ОБУЧЕНИЕ В ШКОЛУ "ЛАВИТА" В НЕВСКОМ РАЙОНЕ
+                    ПЕТЕРБУРГА! УСПЕЙ ЗАПИСАТЬСЯ!`;
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+});
+touchArea.addEventListener(events[deviceType].up, () => {
+    isSwiped = false;
+});
+touchArea.addEventListener('mouseleave', () => {
+    isSwiped = false;
+});
+window.onload = () => {
+    isSwiped = false;
+};
+//----------------------------------
 headerButtons.addEventListener('click', screenSize);
 function screenSize(e) {
     if (window.innerWidth <= 1150 && iconMenu.classList.contains('_active')) {
@@ -325,15 +422,42 @@ function screenSize(e) {
             header.classList.toggle('_active');
             headerWrapper.classList.toggle('_active');
         }
-    } else if (window.innerWidth > 1150) {
+    }
+}
+function is_touch_enabled() {
+    return ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0);
+}
+if (window.innerWidth < 920 && window.innerHeight < window.innerWidth && is_touch_enabled()) {
+    headerWrapper.style.cssText = 'top: -22%';
+    mainContent.style.cssText = 'top: 90px;';
+
+}
+const linkOriginCopy = linkListener.innerHTML;
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 920 && window.innerHeight < window.innerWidth && is_touch_enabled()) {
+        headerWrapper.style.cssText = 'top: -23%;';
+        mainContent.style.cssText = 'top: 90px;';
+        if (headerWrapper.classList.contains('_active')) {
+            for (let i = 0; i < navigationHidList.length; i++) {
+                navigationHidList[i].classList.add('_active');
+            }
+        } 
+    } else {
+        headerWrapper.style.cssText = 'top: 0%';
+        mainContent.style.cssText = 'top: 190px;';
+        for (let i = 0; i < navigationHidList.length; i++) {
+            navigationHidList[i].classList.remove('_active');
+        }
+    }
+    if (window.innerWidth > 1150) {
+        headerWrapper.classList.remove('_active');
         headerBottomNav.classList.remove('_active');
         document.body.classList.remove('_lock');
         header.classList.remove('_active');
         headerWrapper.classList.remove('_active');
     }
-}
-const linkOriginCopy = linkListener.innerHTML;
-window.addEventListener('resize', () => {
     if (window.innerWidth <= 480) {
         linkListener.innerHTML = `<img src="img/icons/index/Globe.svg" alt="" width="35">`;
     }
@@ -346,6 +470,7 @@ window.addEventListener('resize', () => {
         phoneToggle.classList.remove('_icon-phone_mod');
         emailToggle.classList.remove('_icon-email_mod');
         locationToggle.classList.remove('_icon-location_mod');
+        
     }
 });
 if (window.innerWidth <= 480) {
