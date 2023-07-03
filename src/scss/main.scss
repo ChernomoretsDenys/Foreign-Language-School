@@ -23,7 +23,6 @@
     align-items: center;
     transition: all 0.3s ease-in 0s;
     position: relative;
-
     &.active {
         background: url("../img/backgrounds/index/dmitrii-anisimov-reka-bolshaia-neva-universitetskaia-naberez.png") 50% /
             cover no-repeat;
@@ -37,10 +36,6 @@
 .background__button {
     @include adaptive-value("width", 60, 40, 1);
     @include adaptive-value("height", 60, 40, 1);
-}
-.main__button span {
-    color: #fff;
-    @include adaptive-value("font-size", 20, 15, 1);
 }
 .background__textBlock {
     display: flex;
@@ -69,15 +64,15 @@
     &:hover {
         transform: scale(1.1);
     }
+    & span {
+        color: #fff;
+        @include adaptive-value("font-size", 20, 15, 1);
+    }
 }
 .background__moreInfo {
     @include adaptive-value("width", 153, 90, 1);
     @include adaptive-value("height", 50, 30, 1);
 }
-
-
-
-
 .body__upper {
     @include adaptive-value("margin-top", 50, 0, 1);
     display: flex;
@@ -86,10 +81,10 @@
 }
 .body__upper-field {
     border: 10px solid #ec1b2e;
-    @include adaptive-value("padding-top",56 ,10 , 1);
-    @include adaptive-value("padding-bottom",56 ,10 , 1);
-    @include adaptive-value("padding-right",70 ,20 , 1);
-    @include adaptive-value("padding-left",70 ,20 , 1);
+    @include adaptive-value("padding-top", 56, 10, 1);
+    @include adaptive-value("padding-bottom", 56, 10, 1);
+    @include adaptive-value("padding-right", 70, 20, 1);
+    @include adaptive-value("padding-left", 70, 20, 1);
     max-width: 400px;
 }
 .body__upper-leg {
@@ -98,16 +93,148 @@
     line-height: 140%;
     letter-spacing: 0.01em;
     color: #333333;
-    @include adaptive-value("margin-left", 40, 10, 1);
     padding: 0 20px 0;
 }
 .body__upper-text {
     font-size: 18px;
     line-height: 140%;
-    
+    & p:last-child {
+        @include adaptive-value("margin-top", 15, 5, 1);
+    }
 }
 .body__upper-img {
-    @media (max-width:1060px) {
+    @media (max-width: 1060px) {
         display: none;
     }
+}
+.body__middle {
+    @include adaptive-value("margin-top", 150, 0, 1);
+    display: flex;
+    flex-direction: column;
+}
+.universal__title {
+    align-self: center;
+    font-weight: 800;
+    @include adaptive-value("font-size", 48, 20, 1);
+    line-height: 140%;
+}
+.body__middle-title {
+    @include adaptive-value("margin-bottom",52 ,10 , 1);
+}
+.body__middle-firstBlock {
+    display: flex;
+    justify-content: space-evenly;
+    @include adaptive-value("margin-bottom",30 ,15 , 1);
+    & .main__button {
+        @include adaptive-value("padding", 12, 5, 1);
+        border-radius: 10px;
+        & span {
+            @include adaptive-value("font-size", 20, 10, 1);
+        }
+    }
+}
+.body__middle-secondBlock {
+    display: flex;
+    justify-content: space-between;
+    @include adaptive-value("margin-bottom",100 ,20 , 1);
+}
+.body__middle-link {
+    display: inline;
+    font-weight: 700;
+    @include adaptive-value("font-size", 24, 10, 1);
+    line-height: 140%;
+    transition: all 0.3s ease-in 0s;
+    &:hover {
+        color: #ec1b2e;
+    }
+}
+.body__middle-align{
+    text-align: center;
+}
+.table__middle {
+    width: 100%;
+    & th {
+        background: #3333330d;
+        font-weight: 700;
+        @include adaptive-value("font-size",20 ,15 ,1 );
+        line-height: 200%;
+        text-align: left;
+        padding-left: 15px;
+    }
+    & td {
+        background: #b9b9b90d;
+        padding: 10px;
+        @include adaptive-value("font-size",20 ,11 ,1 );
+        & .td-red {
+            background-color:#ec1b2e;
+            color:#fff;
+            padding: 4px;
+            border-radius: 4px;
+        }
+        & .td-fit {
+            @include adaptive-value("margin-left",19 ,10 , 1);
+            display: inline-block;
+        }
+        @media (max-width:600px) {
+            & .td-fit,
+            & .td-remove {
+                display: none;
+            }
+        }
+    }
+}
+.table__middle-groups {
+    width: 17%;
+}
+.table__middle-intensity {
+    width: 28%;
+}
+.table__middle-cost {
+    width: 55%;
+}
+
+// background: #b9b9b90d;
+
+
+
+.body__bottom {
+
+}
+.body__bottom-exams {
+}
+.leaflet__bottom {
+    
+}
+.leaflet__bottom-title {
+}
+.leaflet__bottom-leaflets {
+}
+.leaflets {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: px;
+}
+.leaflets__leaflet {
+}
+.leaflet {
+}
+.leaflet__image {
+    max-width: 100%;
+}
+.leaflet__text {
+}
+.leaflet__text-title {
+}
+.leaflet__text-ul {
+}
+.leaflet__text-li {
+}
+.main__button {
+    width: 100%;
+}
+.body__bottom-events {
+}
+.leaflet__text-main {
+}
+.body__bottom-schoolNews {
 }
