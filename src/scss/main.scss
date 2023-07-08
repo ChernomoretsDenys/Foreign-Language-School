@@ -194,9 +194,6 @@
     width: 55%;
 }
 
-
-
-
 .leaflet__bottom {
     display: flex;
     flex-direction: column;
@@ -213,8 +210,8 @@
 .leaflet {
     display: flex;
     flex-direction: column;
-    background-color:rgba(51,51,51,.0509803922);
-    border-radius: 20px ;
+    background-color: rgba(51, 51, 51, 0.0509803922);
+    border-radius: 20px;
     overflow: hidden;
     height: 100%;
     padding-bottom: 15px;
@@ -250,9 +247,9 @@
     flex: 1 1 auto;
 }
 .leaflet__text-main {
-font-size: 16px;
-line-height: 140%;
-color: #333333;
+    font-size: 16px;
+    line-height: 140%;
+    color: #333333;
 }
 .main__button-mod {
     @include adaptive-value("margin-bottom", 35, 10, 1);
