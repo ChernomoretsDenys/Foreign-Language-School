@@ -45,11 +45,11 @@
     @include adaptive-value("height", 420, 100, 1);
     margin: 0 15px;
 }
-.text-container {
+.text-container { 
     max-width: 586px;
     background-color: rgba(50, 52, 68, 0.5);
 }
-.text-container__contents {
+.text-container__contents {  
     font-weight: 800;
     @include adaptive-value("font-size", 40, 10, 1);
     line-height: 140%;
